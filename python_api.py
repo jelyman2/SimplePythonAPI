@@ -1,9 +1,16 @@
-#!/usr/bin/env python
-
 """ Basic Python Endpoint API system
 """
 
-import endpoints
-from protorpc import messages
-from protorpc import message_types
-from protorpc import remote
+from endpoints import Controller
+
+class Default(Controller):
+    def GET(self):
+        return "boom"
+
+    def POST(self, **kwargs):
+        return "hello {}".format(kwargs['name'])
+
+class Foo(Controller):
+    def GET(self):
+        return "bang"
+
